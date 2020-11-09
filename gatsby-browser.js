@@ -10,6 +10,7 @@ const GlobalStyles = createGlobalStyle`
   }
   body, html {
     font-family: ${(props) => props.theme.fonts.main};
+    font-size: 14px;
     color: ${(props) => props.theme.fonts.dark};
   }
 `;
