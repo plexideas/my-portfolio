@@ -1,6 +1,6 @@
 import { graphql, Link, useStaticQuery } from 'gatsby';
 import React from 'react';
-import { HeaderWrapper } from './styled';
+import { HeaderContentWrapper, HeaderWrapper } from './styled';
 
 export const Header = () => {
   const data = useStaticQuery(graphql`
@@ -13,13 +13,15 @@ export const Header = () => {
 
   return (
     <HeaderWrapper>
-      <Link to="/">
-        <img
-          src={data.logo.publicURL}
-          style={{ height: '48px', width: '48px' }}
-          alt="PLEXIDEAS"
-        />
-      </Link>
+      <HeaderContentWrapper>
+        <Link to="/">
+          <img
+            src={data.logo.publicURL}
+            style={{ height: '48px', width: '48px' }}
+            alt="PLEXIDEAS"
+          />
+        </Link>
+      </HeaderContentWrapper>
     </HeaderWrapper>
   );
 };
