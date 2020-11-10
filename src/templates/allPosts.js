@@ -1,7 +1,7 @@
 import { graphql } from 'gatsby';
 import React from 'react';
 import {
-  Container, ContentCard, Header, Navbar, Sidebar, Social,
+  Container, Card, Header, Navbar, Sidebar, Social, Content,
 } from '../components';
 
 const allPosts = ({ pageContext, data }) => {
@@ -10,7 +10,7 @@ const allPosts = ({ pageContext, data }) => {
   const posts = data.allMdx.edges;
 
   const postList = posts.map((post) => (
-    <ContentCard
+    <Card
       key={post.node.frontmatter.slug}
       title={post.node.frontmatter.title}
       slug={post.node.frontmatter.slug}
@@ -26,7 +26,9 @@ const allPosts = ({ pageContext, data }) => {
         <Navbar />
         <Social />
       </Sidebar>
-      { postList }
+      <Content>
+        { postList }
+      </Content>
     </Container>
   );
 };

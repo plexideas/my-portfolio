@@ -1,11 +1,13 @@
 export default {
   fonts: {
     main: 'Roboto',
+    code: 'Roboto Mono',
   },
   colors: {
     main: '#FFFFFF',
     dark: '#333333',
     gray: '#646464',
+    blue: '#78c7f1',
   },
   breakpoints: {
     mobile: 'only screen and (max-width: 50rem)',

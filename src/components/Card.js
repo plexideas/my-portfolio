@@ -5,7 +5,7 @@ import {
   CardWrapper, CardBottomWrapper, H2, P,
 } from './styled';
 
-export const ContentCard = ({
+export const Card = ({
   title, excerpt, date, slug,
 }) => (
   <CardWrapper>
@@ -24,7 +24,7 @@ export const ContentCard = ({
   </CardWrapper>
 );
 
-ContentCard.propTypes = {
+Card.propTypes = {
   title: PropTypes.string.isRequired,
   excerpt: PropTypes.string.isRequired,
   date: PropTypes.string.isRequired,

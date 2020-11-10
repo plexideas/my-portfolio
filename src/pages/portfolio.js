@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  Container, Header, Navbar, Sidebar, Social,
+  Container, Content, Header, Navbar, Sidebar, Social,
 } from '../components';
 
 const PortfolioPage = () => (
@@ -10,7 +10,9 @@ const PortfolioPage = () => (
       <Navbar />
       <Social />
     </Sidebar>
-    <h1>Portfolio Page</h1>
+    <Content>
+      <h1>Portfolio Page</h1>
+    </Content>
   </Container>
 );
 

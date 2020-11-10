@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  Container, Header, Navbar, Sidebar, Social,
+  Container, Content, Header, Navbar, Sidebar, Social,
 } from '../components';
 
 const ContactPage = () => (
@@ -10,7 +10,9 @@ const ContactPage = () => (
       <Navbar />
       <Social />
     </Sidebar>
-    <h1>Contact Page</h1>
+    <Content>
+      <h1>Contact Page</h1>
+    </Content>
   </Container>
 );
 

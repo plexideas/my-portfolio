@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  Container, Header, Navbar, Sidebar, Social,
+  Container, Content, Header, Navbar, Sidebar, Social,
 } from '../components';
 
 const IndexPage = () => (
@@ -10,7 +10,9 @@ const IndexPage = () => (
       <Navbar />
       <Social />
     </Sidebar>
-    <h1>Hello, World</h1>
+    <Content>
+      <h1>Hello, World</h1>
+    </Content>
   </Container>
 );
 
