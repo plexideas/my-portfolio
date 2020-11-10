@@ -13,6 +13,12 @@ const GlobalStyles = createGlobalStyle`
     font-size: 14px;
     color: ${(props) => props.theme.fonts.dark};
   }
+  a {
+    font-family: ${(props) => props.theme.fonts.main};
+    font-size: 14px;
+    color: ${(props) => props.theme.colors.dark};
+    text-decoration: none;
+  }
 `;
 
 export const wrapRootElement = ({ element }) => (

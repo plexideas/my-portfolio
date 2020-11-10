@@ -1,4 +1,25 @@
 module.exports = {
+  siteMetadata: {
+    title: 'PLEXIDEAS by Sakharovskii Sergey',
+    menuLinks: [
+      {
+        name: 'about',
+        link: '/',
+      },
+      {
+        name: 'portfolio',
+        link: '/portfolio',
+      },
+      {
+        name: 'blog',
+        link: '/blog',
+      },
+      {
+        name: 'contact',
+        link: '/contact',
+      },
+    ],
+  },
   plugins: [
     {
       resolve: 'gatsby-source-filesystem',
