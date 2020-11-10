@@ -5,9 +5,7 @@ import { PostTitleWrapper, PostWrapper } from './styled';
 
 export const Post = ({ children, title }) => (
   <PostWrapper>
-    <PostTitleWrapper>
-      { title }
-    </PostTitleWrapper>
+    <PostTitleWrapper dangerouslySetInnerHTML={{ __html: title }} />
     <MDXRenderer>
       { children }
     </MDXRenderer>
