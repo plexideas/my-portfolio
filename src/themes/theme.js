@@ -5,6 +5,7 @@ export default {
   colors: {
     main: '#FFFFFF',
     dark: '#333333',
+    gray: '#646464',
   },
   breakpoints: {
     mobile: 'only screen and (max-width: 50rem)',

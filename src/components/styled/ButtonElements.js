@@ -7,6 +7,7 @@ export const ButtonWrapper = styled(Link)`
   font-size: 1.5rem;
   font-weight: 300;
   text-transform: capitalize;
+  text-decoration: none;
   :hover {
     background-color: ${(props) => props.theme.colors.dark};
     color: ${(props) => props.theme.colors.main};
