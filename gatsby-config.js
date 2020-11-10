@@ -19,6 +19,24 @@ module.exports = {
         link: '/contact',
       },
     ],
+    socialLinks: [
+      {
+        name: 'github',
+        link: '/',
+      },
+      {
+        name: 'linkedin',
+        link: '/portfolio',
+      },
+      {
+        name: 'instagram',
+        link: '/blog',
+      },
+      {
+        name: 'discord',
+        link: '/contact',
+      },
+    ],
   },
   plugins: [
     {
