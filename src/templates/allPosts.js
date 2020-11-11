@@ -5,10 +5,8 @@ import {
 } from '../components';
 
 const allPosts = ({ pageContext, data }) => {
-  console.log({ data });
   console.log({ pageContext });
   const posts = data.allMdx.edges;
-
   const postList = posts.map((post) => (
     <Card
       key={post.node.frontmatter.slug}
