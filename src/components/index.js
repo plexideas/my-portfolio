@@ -7,6 +7,7 @@ export * from './Header';
 export * from './MobileMenu';
 export * from './Navbar';
 export * from './Post';
+export * from './Seo';
 export * from './Sidebar';
 export * from './Social';
 export * from './Table';

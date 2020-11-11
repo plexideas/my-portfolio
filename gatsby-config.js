@@ -1,6 +1,10 @@
 module.exports = {
   siteMetadata: {
     title: 'PLEXIDEAS by Sakharovskii Sergey',
+    description: 'Hello! I am Sergei Sakharovskii and this is my personal blog!',
+    url: 'https://plexideas.dev/',
+    twitterUsername: '@8bitago',
+    author: 'Sergei Sakharovskii',
     menuLinks: [
       {
         name: 'about',

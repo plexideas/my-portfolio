@@ -1,7 +1,7 @@
 import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
 import {
-  Container, Content, Header, Navbar, Post, Sidebar, Social,
+  Container, Content, Header, Navbar, Post, Seo, Sidebar, Social,
 } from '../components';
 
 const IndexPage = () => {
@@ -20,6 +20,7 @@ const IndexPage = () => {
 
   return ((
     <Container>
+      <Seo />
       <Header />
       <Sidebar>
         <Navbar />

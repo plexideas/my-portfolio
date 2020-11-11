@@ -1,7 +1,7 @@
 import { graphql } from 'gatsby';
 import React from 'react';
 import {
-  Container, Card, Header, Navbar, Sidebar, Social, Content,
+  Container, Card, Header, Navbar, Sidebar, Social, Content, Seo,
 } from '../components';
 
 const allPosts = ({ pageContext, data }) => {
@@ -19,6 +19,7 @@ const allPosts = ({ pageContext, data }) => {
 
   return (
     <Container>
+      <Seo />
       <Header />
       <Sidebar>
         <Navbar />
