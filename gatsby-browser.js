@@ -1,9 +1,11 @@
 import React from 'react';
+import { Provider } from 'react-redux';
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
 import { MDXProvider } from '@mdx-js/react';
 import { preToCodeBlock } from 'mdx-utils';
 import { Table, Code } from './src/components';
 import theme from './src/themes/theme';
+import store from './src/store';
 
 import './language-tabs.css';
 
@@ -45,10 +47,12 @@ const components = {
 };
 
 export const wrapRootElement = ({ element }) => (
-  <MDXProvider components={components}>
-    <ThemeProvider theme={theme}>
-      <GlobalStyles />
-      {element}
-    </ThemeProvider>
-  </MDXProvider>
+  <Provider store={store}>
+    <MDXProvider components={components}>
+      <ThemeProvider theme={theme}>
+        <GlobalStyles />
+        {element}
+      </ThemeProvider>
+    </MDXProvider>
+  </Provider>
 );
