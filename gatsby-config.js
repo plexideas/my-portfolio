@@ -22,19 +22,19 @@ module.exports = {
     socialLinks: [
       {
         name: 'github',
-        link: '/',
+        link: 'https://github.com/plexideas',
       },
       {
         name: 'linkedin',
-        link: '/portfolio',
+        link: 'https://www.linkedin.com/in/plexideas/',
       },
       {
         name: 'instagram',
-        link: '/blog',
+        link: 'https://www.instagram.com/8bitago/',
       },
       {
         name: 'discord',
-        link: '/contact',
+        link: 'https://discordapp.com/users/616631617829732372',
       },
     ],
   },

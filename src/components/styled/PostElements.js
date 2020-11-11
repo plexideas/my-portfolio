@@ -21,7 +21,7 @@ export const PostWrapper = styled.div`
   h2 {
     font-size: 1.5rem;
     line-height: 1.875rem;
-    font-weight: 400;
+    font-weight: 700;
   }
 
   h3 {
