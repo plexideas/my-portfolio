@@ -27,8 +27,6 @@ export const Social = () => {
   const { socialLinks } = data.site.siteMetadata;
   const icons = data.allFile.edges;
 
-  console.log(icons);
-
   const socialIcons = socialLinks.map((socialLink) => {
     const { node } = icons.find((icon) => icon.node.name === socialLink.name);
     return (
