@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
-import { SidebarContentWrapper, SidebarPositionWrapper } from './styled';
+import { SidebarPositionWrapper } from './styled';
 import { MobileMenu } from './MobileMenu';
 
 export const Sidebar = ({ children }) => {
@@ -10,9 +10,7 @@ export const Sidebar = ({ children }) => {
   ));
   return (
     <SidebarPositionWrapper visible={isMobileMenuVisible}>
-      <SidebarContentWrapper>
-        {children}
-      </SidebarContentWrapper>
+      {children}
       <MobileMenu isOpen />
     </SidebarPositionWrapper>
   );

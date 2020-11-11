@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const SocialWrapper = styled.div`
-  position: inherit;
+  position: fixed;
   bottom: 60px;
   padding: 0 1rem;
   height: 60px;

@@ -7,6 +7,7 @@ export const ContentWrapper = styled.main`
 
   @media ${(props) => props.theme.breakpoints.mobile} {
     padding: 0;
+    padding-top: 1rem;
     padding-bottom: 1.5rem;
   }
 `;

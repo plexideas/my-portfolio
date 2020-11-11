@@ -10,16 +10,12 @@ export const SidebarPositionWrapper = styled.div`
     display: ${(props) => (props.visible ? 'flex' : 'none')};
     height: 100%;
     width: 100%;
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     padding: 1rem;
     align-items: center;
     justify-content: flex-start;
+    z-index:1000;
   }
-`;
-
-export const SidebarContentWrapper = styled.div`
-  position: fixed;
-  width: 200px;
 `;

@@ -5,6 +5,7 @@ export const ContainerWrapper = styled.div`
   height: 100%;
   width: 100%;
   padding: 0 10%;
+  overflow: auto;
 
   @media ${(props) => props.theme.breakpoints.desktop} {
     padding: 0 5%;

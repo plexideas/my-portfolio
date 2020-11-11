@@ -10,6 +10,7 @@ export const HeaderWrapper = styled.header`
   align-items: center;
 
   background-color: ${(props) => props.theme.colors.main};
+  z-index: 100;
 
   @media ${(props) => props.theme.breakpoints.mobile} {
     top: 0px;

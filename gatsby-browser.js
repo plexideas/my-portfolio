@@ -19,6 +19,7 @@ const GlobalStyles = createGlobalStyle`
     font-family: ${(props) => props.theme.fonts.main};
     font-size: 14px;
     color: ${(props) => props.theme.fonts.dark};
+    overflow: hidden;
   }
   a {
     font-family: ${(props) => props.theme.fonts.main};
