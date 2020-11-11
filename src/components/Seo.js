@@ -29,7 +29,7 @@ export const Seo = ({
       const metaKeywords = keywords;
       return (
         <Helmet
-          title={title}
+          title={metaTitle}
           meta={[
             {
               name: 'description',
