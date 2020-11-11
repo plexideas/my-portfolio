@@ -5,6 +5,8 @@ import { preToCodeBlock } from 'mdx-utils';
 import { Table, Code } from './src/components';
 import theme from './src/themes/theme';
 
+import './language-tabs.css';
+
 const GlobalStyles = createGlobalStyle`
   * {
     box-sizing: border-box;
@@ -20,6 +22,9 @@ const GlobalStyles = createGlobalStyle`
     font-family: ${(props) => props.theme.fonts.main};
     font-size: 14px;
     color: ${(props) => props.theme.colors.dark};
+  }
+  b {
+    /* font-weight: 400; */
   }
   h1, h2, h3, h4, h5, h6 {
     color: ${(props) => props.theme.colors.dark};
