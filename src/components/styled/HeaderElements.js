@@ -10,6 +10,11 @@ export const HeaderWrapper = styled.header`
   align-items: center;
 
   background-color: ${(props) => props.theme.colors.main};
+
+  @media ${(props) => props.theme.breakpoints.mobile} {
+    top: 0px;
+    height: 72px;
+  }
 `;
 
 export const HeaderContentWrapper = styled.div`
