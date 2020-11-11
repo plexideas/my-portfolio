@@ -73,7 +73,9 @@ export const Seo = ({
               content: metaKeywords.join(', '),
             } : [],
           )}
-        />
+        >
+          <html lang="en" />
+        </Helmet>
       );
     }}
   />
