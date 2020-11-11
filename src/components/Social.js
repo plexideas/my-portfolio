@@ -1,5 +1,7 @@
 import { graphql, Link, useStaticQuery } from 'gatsby';
 import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { actionCommonSetIsMobileMenuVisible } from '../store/actions/commonAction';
 import { SocialIcon, SocialWrapper } from './styled';
 
 export const Social = () => {
@@ -23,6 +25,16 @@ export const Social = () => {
       }
     }
   `);
+  const dispatch = useDispatch();
+  const isMobileMenuVisible = useSelector((state) => (
+    state.common.isMobileMenuVisible
+  ));
+
+  const onClickHandler = () => {
+    if (isMobileMenuVisible) {
+      dispatch(actionCommonSetIsMobileMenuVisible(false));
+    }
+  };
 
   const { socialLinks } = data.site.siteMetadata;
   const icons = data.allFile.edges;
@@ -30,7 +42,11 @@ export const Social = () => {
   const socialIcons = socialLinks.map((socialLink) => {
     const { node } = icons.find((icon) => icon.node.name === socialLink.name);
     return (
-      <Link to={socialLink.link} key={socialLink.name}>
+      <Link
+        to={socialLink.link}
+        key={socialLink.name}
+        onClick={onClickHandler}
+      >
         <SocialIcon
           src={node.publicURL}
           alt={socialLink.name}

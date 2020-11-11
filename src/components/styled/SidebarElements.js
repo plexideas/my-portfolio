@@ -7,14 +7,13 @@ export const SidebarPositionWrapper = styled.div`
   background-color: ${(props) => props.theme.colors.main};
 
   @media ${(props) => props.theme.breakpoints.mobile} {
+    display: ${(props) => (props.visible ? 'flex' : 'none')};
     height: 100%;
     width: 100%;
     position: absolute;
     top: 0;
     left: 0;
     padding: 1rem;
-
-    display: flex;
     align-items: center;
     justify-content: flex-start;
   }

@@ -1,7 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useDispatch } from 'react-redux';
 import { useStaticQuery, graphql } from 'gatsby';
 import { MobileMenuButton } from './styled';
+import { actionCommonSetIsMobileMenuVisible } from '../store/actions/commonAction';
 
 export const MobileMenu = ({ isOpen }) => {
   const data = useStaticQuery(graphql`
@@ -15,9 +17,10 @@ export const MobileMenu = ({ isOpen }) => {
     }
   `);
   const icon = isOpen ? data.close : data.hamburger;
+  const dispatch = useDispatch();
 
   return (
-    <MobileMenuButton>
+    <MobileMenuButton onClick={() => dispatch(actionCommonSetIsMobileMenuVisible())}>
       <img src={icon.publicURL} alt="X" />
     </MobileMenuButton>
   );

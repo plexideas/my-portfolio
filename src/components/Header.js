@@ -1,5 +1,6 @@
 import { graphql, Link, useStaticQuery } from 'gatsby';
 import React from 'react';
+import { MobileMenu } from './MobileMenu';
 import { HeaderContentWrapper, HeaderWrapper } from './styled';
 
 export const Header = () => {
@@ -21,6 +22,7 @@ export const Header = () => {
             alt="PLEXIDEAS"
           />
         </Link>
+        <MobileMenu isOpen={false} />
       </HeaderContentWrapper>
     </HeaderWrapper>
   );
