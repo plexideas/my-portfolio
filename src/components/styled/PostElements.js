@@ -129,24 +129,15 @@ export const PostWrapper = styled.div`
     text-align: left;
     padding: 0.5rem;
   }
-
-  @media ${(props) => props.theme.breakpoints.tablet} {
-    
-  }
-
-  @media ${(props) => props.theme.breakpoints.mobile} {
-    padding: ${(props) => `
-      ${props.theme.spacings.medium} 
-      ${props.theme.spacings.large}
-    `};
-  }
 `;
 
 export const PostTitleWrapper = styled.div`
   width: 100%;
   background-color: ${(props) => props.theme.colors.blue};
+  color: ${(props) => props.theme.colors.dark};
   font-size: 3rem;
-  font-weight: 300;
+  font-weight: 100;
+  line-height: 130%;
   padding-bottom: 3rem;
   margin-bottom: 1.5rem;
 `;
