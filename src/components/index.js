@@ -4,6 +4,7 @@ export * from './Code';
 export * from './Container';
 export * from './Content';
 export * from './Header';
+export * from './MobileMenu';
 export * from './Navbar';
 export * from './Post';
 export * from './Sidebar';
