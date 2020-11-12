@@ -1,4 +1,4 @@
-import { graphql, Link, useStaticQuery } from 'gatsby';
+import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { actionCommonSetIsMobileMenuVisible } from '../store/actions/commonAction';
@@ -42,8 +42,8 @@ export const Social = () => {
   const socialIcons = socialLinks.map((socialLink) => {
     const { node } = icons.find((icon) => icon.node.name === socialLink.name);
     return (
-      <Link
-        to={socialLink.link}
+      <a
+        href={socialLink.link}
         key={socialLink.name}
         onClick={onClickHandler}
       >
@@ -51,7 +51,7 @@ export const Social = () => {
           src={node.publicURL}
           alt={socialLink.name}
         />
-      </Link>
+      </a>
     );
   });
 
