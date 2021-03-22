@@ -9,7 +9,8 @@ export const HeaderWrapper = styled.header`
   display: flex;
   align-items: center;
 
-  background-color: ${(props) => props.theme.colors.main};
+  background-color: ${(props) => props.theme.colors.main}90;
+  backdrop-filter: blur(5px);
   z-index: 100;
 
   @media ${(props) => props.theme.breakpoints.mobile} {

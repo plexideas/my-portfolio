@@ -8,6 +8,8 @@ export const SidebarPositionWrapper = styled.div`
 
   @media ${(props) => props.theme.breakpoints.mobile} {
     display: ${(props) => (props.visible ? 'flex' : 'none')};
+    background-color: ${(props) => props.theme.colors.main}90;
+    backdrop-filter: blur(5px);
     height: 100%;
     width: 100%;
     position: fixed;
@@ -16,6 +18,6 @@ export const SidebarPositionWrapper = styled.div`
     padding: 1rem;
     align-items: center;
     justify-content: flex-start;
-    z-index:1000;
+    z-index: 1000;
   }
 `;
