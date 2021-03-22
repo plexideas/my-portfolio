@@ -10,7 +10,7 @@ export const HeaderWrapper = styled.header`
   align-items: center;
 
   background-color: ${(props) => props.theme.colors.main}90;
-  backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px) hue-rotate(45deg);
   z-index: 100;
 
   @media ${(props) => props.theme.breakpoints.mobile} {
