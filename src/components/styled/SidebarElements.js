@@ -17,7 +17,7 @@ export const SidebarPositionWrapper = styled.div`
     left: 0;
     padding: 1rem;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: flex-end;
     z-index: 1000;
   }
 `;

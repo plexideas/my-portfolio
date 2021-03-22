@@ -5,4 +5,8 @@ export const NavbarWrapper = styled.nav`
   width: 200px;
   display: flex;
   flex-direction: column;
+
+  @media ${(props) => props.theme.breakpoints.mobile} {
+    align-items: flex-end;
+  }
 `;
