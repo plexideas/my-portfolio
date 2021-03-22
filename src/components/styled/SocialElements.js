@@ -11,6 +11,12 @@ export const SocialWrapper = styled.div`
 `;
 
 export const SocialIcon = styled.img`
-  width: 32px;
-  padding-right: 8px;
+  width: 2rem;
+  margin-right: 8px;
+
+  @media ${(props) => props.theme.breakpoints.mobile} {
+    width: 3rem;
+    margin-top: 1rem;
+    margin-right: 1rem;
+  }
 `;
