@@ -1,6 +1,6 @@
 export default {
   fonts: {
-    main: 'Roboto',
+    main: 'Poppins',
     code: 'Roboto Mono',
   },
   colors: {
@@ -8,6 +8,8 @@ export default {
     dark: '#333333',
     gray: '#646464',
     blue: '#78c7f1',
+    lightmint: '#c3e3df',
+    iceblue: '#f0f8ff',
   },
   breakpoints: {
     mobile: 'only screen and (max-width: 50rem)',

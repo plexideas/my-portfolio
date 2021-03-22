@@ -5,10 +5,20 @@ export const PostWrapper = styled.div`
   background-color: ${(props) => props.theme.colors.main};
 
   z-index: 10;
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     color: ${(props) => props.theme.colors.dark};
   }
-  h1:not(:first-child), h2, h3, h4, h5, h6 {
+  h1:not(:first-child),
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     margin-top: 2rem;
   }
 
@@ -83,7 +93,8 @@ export const PostWrapper = styled.div`
     margin: 3rem auto;
   }
 
-  ul, ol {
+  ul,
+  ol {
     color: ${(props) => props.theme.colors.dark};
     margin: 1rem 0 1rem 2rem;
   }
@@ -121,11 +132,14 @@ export const PostWrapper = styled.div`
     font-weight: 700;
   }
 
-  table, th, td {
-    border: 1px solid ${(props) => props.theme.colors.gray}
+  table,
+  th,
+  td {
+    border: 1px solid ${(props) => props.theme.colors.gray};
   }
 
-  th, td {
+  th,
+  td {
     text-align: left;
     padding: 0.5rem;
   }
@@ -133,11 +147,18 @@ export const PostWrapper = styled.div`
 
 export const PostTitleWrapper = styled.div`
   width: 100%;
-  background-color: ${(props) => props.theme.colors.blue};
+  background-color: ${(props) => props.theme.colors.lightmint};
   color: ${(props) => props.theme.colors.dark};
   font-size: 3rem;
   font-weight: 100;
   line-height: 130%;
+  padding: 1rem 0.5rem;
   padding-bottom: 3rem;
   margin-bottom: 1.5rem;
+
+  & > b {
+    background-color: ${(props) => props.theme.colors.iceblue}80;
+    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.2));
+    padding: 10px;
+  }
 `;

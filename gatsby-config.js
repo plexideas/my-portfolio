@@ -97,10 +97,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-google-fonts',
       options: {
-        fonts: [
-          'Roboto:100,300,400,400i,700,700i',
-          'Roboto Mono:300,400,400i,700,700i',
-        ],
+        fonts: ['Poppins:100,300,400,400i,700,700i', 'Roboto Mono:300,400,400i,700,700i'],
         display: 'swap',
       },
     },
