@@ -8,6 +8,9 @@ export const ButtonWrapper = styled(Link)`
   font-weight: 300;
   text-transform: capitalize;
   text-decoration: none;
+
+  transition: all 0.3s ease-in-out;
+
   :hover {
     background-color: ${(props) => props.theme.colors.dark};
     color: ${(props) => props.theme.colors.main};
