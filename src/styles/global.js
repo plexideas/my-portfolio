@@ -16,6 +16,7 @@ export const GlobalStyles = createGlobalStyle`
     font-size: 14px;
     color: ${(props) => props.theme.fonts.dark};
     overflow: hidden;
+    -webkit-font-smoothing: antialiased;
   }
   a {
     font-family: ${(props) => props.theme.fonts.main};
