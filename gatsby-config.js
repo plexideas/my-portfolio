@@ -78,6 +78,9 @@ module.exports = {
         path: `${__dirname}/src/content/mdx/posts`,
       },
     },
+    {
+      resolve: 'gatsby-plugin-styled-components',
+    },
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
     {
