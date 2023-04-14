@@ -4,6 +4,8 @@ import {
   Container, Card, Header, Navbar, Sidebar, Social, Content, Seo,
 } from '../components';
 
+// comment
+
 const allPosts = ({ pageContext, data }) => {
   console.log({ pageContext });
   const posts = data.allMdx.edges;
