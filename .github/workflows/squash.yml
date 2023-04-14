@@ -14,15 +14,15 @@ jobs:
     - name: Run Workflow on Pull Request Merge
       if: github.event_name == 'push' && contains(github.event.head_commit.message, 'Merge pull request')
       run: |
-        # comment
         git config user.name "${{ github.actor }}"
         git config user.email "${{ github.actor }}@users.noreply.github.com"
-        git fetch
-        git checkout "${{ github.event.pull_request.base.ref }}"
-        git merge --squash "${{ github.event.pull_request.head.sha }}"
-        echo "Updated squash commit message 123" > commit_message.txt
-        git commit --file=commit_message.txt
-        git push
+        git log -n 1 --pretty=format:"%s%n%n%b" > commit_message.txt
+        # Modify the commit message using any desired text manipulation commands, e.g. sed, awk, etc.
+        # Replace "commit_message.txt" with the actual file containing the commit message
+        # Update the contents of the file with the desired commit message
+        echo "Updated commit message" > commit_message.txt
+        git commit --amend -F commit_message.txt
+        git push --force
 
 
 
