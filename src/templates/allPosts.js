@@ -4,9 +4,6 @@ import {
   Container, Card, Header, Navbar, Sidebar, Social, Content, Seo,
 } from '../components';
 
-// comment
-// comment 2
-// comment 3
 // comment 4
 
 // comment
