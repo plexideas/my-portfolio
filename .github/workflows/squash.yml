@@ -22,8 +22,8 @@ jobs:
         # Update the contents of the file with the desired commit message
         
         PR_NUMBER=${{ github.event.pull_request.number }}
-          API_URL="https://api.github.com/repos/${{ github.repository }}/pulls/${PR_NUMBER}/commits"
-          COMMITS=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" $API_URL)
+        API_URL="https://api.github.com/repos/$GITHUB_REPOSITORY/pulls/$PR_NUMBER/commits"
+        COMMITS=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" $API_URL)
         echo "Updated commit message $COMMITS" > commit_message.txt
         git commit --amend -F commit_message.txt
         git push --force
