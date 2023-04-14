@@ -2,7 +2,7 @@ name: Run Workflow on Pull Request Merge
 on:
   push:
     branches:
-      - main # Update with your target branch name
+      - master # Update with your target branch name
 jobs:
   run_on_merge:
     runs-on: ubuntu-latest
