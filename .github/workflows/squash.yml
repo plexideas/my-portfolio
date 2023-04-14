@@ -1,18 +1,14 @@
 name: Run Workflow on Pull Request Merge
-
 on:
   push:
     branches:
       - main # Update with your target branch name
-
 jobs:
   run_on_merge:
     runs-on: ubuntu-latest
-
     steps:
     - name: Checkout repository
       uses: actions/checkout@v2
-
     - name: Run Workflow on Pull Request Merge
       if: github.event_name == 'push' && contains(github.event.head_commit.message, 'Merge pull request')
       run:
