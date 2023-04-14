@@ -1,20 +1,21 @@
-name: Modify Squash Commit Message
+name: Run Workflow on Pull Request Merge
 
 on:
-  pull_request:
-    types:
-      - synchronize
+  push:
+    branches:
+      - main # Update with your target branch name
 
 jobs:
-  modify_squash_commit_message:
+  run_on_merge:
     runs-on: ubuntu-latest
 
     steps:
     - name: Checkout repository
       uses: actions/checkout@v2
 
-    - name: Modify squash commit message
-      run: |
+    - name: Run Workflow on Pull Request Merge
+      if: github.event_name == 'push' && contains(github.event.head_commit.message, 'Merge pull request')
+      run:
         git config user.name "${{ github.actor }}"
         git config user.email "${{ github.actor }}@users.noreply.github.com"
         git fetch
