@@ -6,6 +6,7 @@ import {
 
 // comment
 // comment 2
+// comment 3
 
 const allPosts = ({ pageContext, data }) => {
   console.log({ pageContext });
