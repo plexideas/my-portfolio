@@ -14,16 +14,4 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Extract Commits
-        run: |
-          # Loop through the list of commits in the pull request
-          for commit in ${{ github.event.commits }}; do
-            # Extract commit information using commit object properties
-            commit_id=$(echo $commit | jq -r '.id')
-            commit_message=$(echo $commit | jq -r '.message')
-            commit_author=$(echo $commit | jq -r '.author.name')
-            
-            # Use the extracted commit information as needed in your workflow
-            echo "Commit ID: $commit_id"
-            echo "Commit Message: $commit_message"
-            echo "Commit Author: $commit_author"
-          done
+        run: echo '${{ toJSON(github.event.pull_request) }}'
