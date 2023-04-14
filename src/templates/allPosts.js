@@ -5,6 +5,7 @@ import {
 } from '../components';
 
 // comment
+// comment 2
 
 const allPosts = ({ pageContext, data }) => {
   console.log({ pageContext });
