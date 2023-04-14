@@ -1,22 +1,29 @@
-name: Run Workflow on Pull Request Merge
+name: Extract Commits
+
 on:
-  push:
-    branches:
-      - master # Update with your target branch name
+  pull_request:
+    types:
+      - synchronize
+
 jobs:
-  run_on_merge:
+  extract_commits:
     runs-on: ubuntu-latest
-    
+
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v3
-      
-    - name: Run Workflow on Pull Request Merge
-      if: github.event_name == 'push' && contains(github.event.head_commit.message, 'Merge pull request')
-      run: |
-        echo "${{toJSON(github.event)}}"
+      - name: Checkout Repository
+        uses: actions/checkout@v2
 
-
-
-
-
+      - name: Extract Commits
+        run: |
+          # Loop through the list of commits in the pull request event
+          for commit in ${{ github.event.commits }}; do
+            # Extract commit information using commit object properties
+            commit_id=$(echo $commit | jq -r '.id')
+            commit_message=$(echo $commit | jq -r '.message')
+            commit_author=$(echo $commit | jq -r '.author.name')
+            
+            # Use the extracted commit information as needed in your workflow
+            echo "Commit ID: $commit_id"
+            echo "Commit Message: $commit_message"
+            echo "Commit Author: $commit_author"
+          done
