@@ -14,7 +14,7 @@ jobs:
     - name: Run Workflow on Pull Request Merge
       if: github.event_name == 'push' && contains(github.event.head_commit.message, 'Merge pull request')
       run: |
-        for commit in "${{ github.event.commits }}"; do
+        for commit in ${{ github.event.commits }} do
           commit_sha=$(echo $commit | jq -r '.id')
           commit_message=$(echo $commit | jq -r '.message')
           commit_author=$(echo $commit | jq -r '.author.name')
