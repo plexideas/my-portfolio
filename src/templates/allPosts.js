@@ -9,6 +9,11 @@ import {
 // comment 3
 // comment 4
 
+// comment
+// comment 2
+// comment 3
+// comment 4
+
 const allPosts = ({ pageContext, data }) => {
   console.log({ pageContext });
   const posts = data.allMdx.edges;
