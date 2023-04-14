@@ -15,8 +15,8 @@ jobs:
       if: github.event_name == 'push' && contains(github.event.head_commit.message, 'Merge pull request')
       run: |
         echo "List of commits:"
-        for commit in "${{ github.event.commits }}"; do
-          echo "- $commit"
+        for commit in ${{ github.event.commits }}; do
+          echo $commit
         done
 
 
