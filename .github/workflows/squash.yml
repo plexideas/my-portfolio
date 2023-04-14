@@ -1,0 +1,34 @@
+name: Run Workflow on Pull Request Merge
+on:
+  push:
+    branches:
+      - master # Update with your target branch name
+jobs:
+  run_on_merge:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+      
+    - name: Run Workflow on Pull Request Merge
+      if: github.event_name == 'push' && contains(github.event.head_commit.message, 'Merge pull request')
+      run: |
+        git config user.name "${{ github.actor }}"
+        git config user.email "${{ github.actor }}@users.noreply.github.com"
+        git log -n 1 --pretty=format:"%s%n%n%b" > commit_message.txt
+        # Modify the commit message using any desired text manipulation commands, e.g. sed, awk, etc.
+        # Replace "commit_message.txt" with the actual file containing the commit message
+        # Update the contents of the file with the desired commit message
+        
+        PR_NUMBER=${{ github.event.pull_request.number }}
+        API_URL="https://api.github.com/repos/$GITHUB_REPOSITORY/pulls/$PR_NUMBER/commits"
+        COMMITS=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" $API_URL)
+        echo "Updated commit message $COMMITS" > commit_message.txt
+        git commit --amend -F commit_message.txt
+        git push --force
+
+
+
+
+
