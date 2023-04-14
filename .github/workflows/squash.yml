@@ -1,0 +1,29 @@
+name: Run Workflow on Pull Request Merge
+on:
+  push:
+    branches:
+      - main # Update with your target branch name
+jobs:
+  run_on_merge:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+      
+    - name: Run Workflow on Pull Request Merge
+      if: github.event_name == 'push' && contains(github.event.head_commit.message, 'Merge pull request')
+      run: |
+        git config user.name "${{ github.actor }}"
+        git config user.email "${{ github.actor }}@users.noreply.github.com"
+        git fetch
+        git checkout "${{ github.event.pull_request.base.ref }}"
+        git merge --squash "${{ github.event.pull_request.head.sha }}"
+        echo "Updated squash commit message 123" > commit_message.txt
+        git commit --file=commit_message.txt
+        git push
+
+
+
+
+
