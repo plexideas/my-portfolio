@@ -3,7 +3,7 @@ name: Extract Commits
 on:
   pull_request:
     types:
-      - synchronize
+      - closed
 
 jobs:
   extract_commits:
