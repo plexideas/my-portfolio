@@ -3,7 +3,9 @@ name: Extract Commits
 on:
   pull_request:
     types:
-      - closed
+      - synchronize
+    branches:
+      - master # Specify the target branch as 'main'
 
 jobs:
   extract_commits:
