@@ -15,4 +15,4 @@ jobs:
         
       - name: Pull Request - Merge
         if: github.event.pull_request.merged
-        run: echo '${{ $COMMIT_MESSAGES }}'
+        run: echo git log -1 --pretty=format:%s
