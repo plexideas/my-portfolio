@@ -1,0 +1,18 @@
+name: Pull Request - Merge
+
+on:
+  pull_request:
+    types:
+      - closed
+
+jobs:
+  extract_commits:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+        
+      - name: Pull Request - Merge
+        if: github.event.pull_request.merged
+        run: echo '${{ COMMIT_MESSAGES }}'
