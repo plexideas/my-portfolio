@@ -19,11 +19,9 @@ jobs:
           echo ${{ toJSON(github.event.pull_request.head.ref) }}
           echo ${{ github.ref }}
           git log -1 --pretty=format:%s
-          
           BRANCH_NAME=${{ github.event.pull_request.head.ref }}
           JIRA_ISSUE_KEY=$(echo "$BRANCH_NAME" | grep -oP '(?<=\/)[A-Z]+-[0-9]+')
-          MERGE_COMMIT_SHA=${{ github.event.pull_request.head.sha }}
-          
+          MERGE_COMMIT_SHA=${{ github.event.pull_request.head.sha }} 
           if [ -n "$JIRA_ISSUE_KEY" ]; then
             git checkout "${{ $MERGE_COMMIT_SHA }}"
             git log --format=%B -n 1 | sed "s/\$/ $JIRA_ISSUE_KEY/" | git commit --amend --file=-
