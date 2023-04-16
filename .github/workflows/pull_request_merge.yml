@@ -16,6 +16,6 @@ jobs:
       - name: Pull Request - Merge
         if: github.event.pull_request.merged
         run: |
-          echo ${{ toJSON(github.event.pull_request) }}
+          echo ${{ toJSON(github.event.pull_request.head.ref) }}
           echo ${{ github.ref }}
           git log -1 --pretty=format:%s
