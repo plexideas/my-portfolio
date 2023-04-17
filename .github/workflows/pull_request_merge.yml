@@ -36,7 +36,7 @@ jobs:
             exit 1
           }
           
-          trap 'handle_error $?"' ERR
+          trap 'handle_error $?' ERR
 
           BRANCH_NAME=${{ github.event.pull_request.head.ref }}
           JIRA_ISSUE_KEY=$(echo "$BRANCH_NAME" | grep -oP '(?<=\/)[A-Z]+-[0-9]+')
