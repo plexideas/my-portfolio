@@ -30,5 +30,7 @@ jobs:
           if [ -n "$JIRA_ISSUE_KEY" ]; then
             git log --format=%B -n 1 | sed "s/\$/ $JIRA_ISSUE_KEY/" | git commit --amend --file=-
             git push -f
+          else
+            echo "Incorrect branch name!"
           fi
 
