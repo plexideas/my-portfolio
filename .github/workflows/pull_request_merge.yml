@@ -1,0 +1,75 @@
+name: Pull Request - Merge
+
+on:
+  pull_request:
+    types:
+      - closed
+      
+jobs:
+  extract_commits:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+        with:
+          ref: ${{ github.base_ref }}
+      
+      # -----------------------
+      # AUTHENTICATION
+      # -----------------------
+      
+      - name: Set up Git
+        run: |
+          git config --global user.name "plexideas"
+          git config --global user.email "plexideas@gmail.com"
+        
+      - name: Pull Request - Merge
+        if: github.event.pull_request.merged
+        run: |
+        
+          # -----------------------
+          # ERROR HANDLING
+          # -----------------------
+          
+          # Enable xtrace mode to capture stack trace
+          set -x
+
+          # Define a function to handle errors
+          handle_error() {
+            echo "Error: $1" >&2
+            echo "Stack trace:"
+            for ((i=${#BASH_LINENO[@]}-1; i>=0; i--)); do
+              echo "File: ${BASH_SOURCE[i]}, Line: ${BASH_LINENO[i]}"
+            done
+            exit 1
+          }
+          
+          trap 'handle_error $?' ERR
+
+          # -----------------------
+          # FORM JIRA ISSUE KEY
+          # -----------------------
+          
+          BRANCH_NAME=${{ github.event.pull_request.head.ref }}
+          JIRA_ISSUE_KEY=$(echo "$BRANCH_NAME" | grep -oiP '(?<=\/)[A-Z0-9]+-[0-9]+')
+          if [ -n "$JIRA_ISSUE_KEY" ]; then
+          
+            # -----------------------
+            # FORM JIRA ISSUE LINK
+            # -----------------------
+            
+            JIRA_ISSUE_LINK="https://hpheroes.atlassian.net/browse/$JIRA_ISSUE_KEY"
+            
+            # -----------------------
+            # ADD LINK TO LAST COMMIT
+            # -----------------------
+            
+            git log --format=%B -n 1 | sed "s/^/$(echo $JIRA_LINK | sed 's/\//\\\//g')\n/" | echo
+            
+            git log --format=%B -n 1 | sed "s/^/$(echo $JIRA_LINK | sed 's/\//\\\//g')\n/" | git commit --amend --file=-
+            git push -f
+          else
+            echo "Incorrect branch name!"
+          fi
+
