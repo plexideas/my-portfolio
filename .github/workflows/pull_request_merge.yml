@@ -65,7 +65,7 @@ jobs:
             # ADD LINK TO LAST COMMIT
             # -----------------------
             
-            echo ${{ toJSON(github.event.pull_request.base) }}
+            echo "${{toJSON(github.event.pull_request.base))}}"
             
             #git log --format=%B -n 1 | sed "s/^/$(echo $JIRA_LINK | sed 's/\//\\\//g')\n/" | git commit --amend --file=-
             #git push -f
