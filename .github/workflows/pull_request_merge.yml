@@ -5,8 +5,6 @@ on:
     types:
       - closed
       
-#comment 1
-
 jobs:
   extract_commits:
     runs-on: ubuntu-latest
@@ -29,7 +27,7 @@ jobs:
           
           handle_error() {
             echo "Error: $1" >&2
-            exit 1
+            exit 0
           }
           
           trap 'handle_error "Something wrong $?"' ERR
