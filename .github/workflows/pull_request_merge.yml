@@ -20,9 +20,13 @@ jobs:
         run: |
           BRANCH_NAME=${{ github.event.pull_request.head.ref }}
           JIRA_ISSUE_KEY="3"
-          if [ -n "$JIRA_ISSUE_KEY" ]; then
-            echo "Good"
-            git log --format=%B -n 1 | sed "s/\$/ $JIRA_ISSUE_KEY/" | git commit --amend --file=-
-            git push -f
-          fi
+          echo "Good"
+          git log --format=%B -n 1 | sed "s/\$/ $JIRA_ISSUE_KEY/" | git commit --amend --file=-
+          git push -f
+          
+          #if [ -n "$JIRA_ISSUE_KEY" ]; then
+            #echo "Good"
+            #git log --format=%B -n 1 | sed "s/\$/ $JIRA_ISSUE_KEY/" | git commit --amend --file=-
+            #git push -f
+          #fi
 
