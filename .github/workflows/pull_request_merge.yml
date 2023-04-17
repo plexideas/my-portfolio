@@ -24,9 +24,7 @@ jobs:
           echo "$MERGE_COMMIT_SHA"
           if [ -n "$JIRA_ISSUE_KEY" ]; then
             echo "Good"
-            git checkout "${{ github.event.pull_request.head.sha }}"
-            #git log --format=%B -n 1 | sed "s/\$/ $JIRA_ISSUE_KEY/" | git commit --amend --file=-
-            #git push -f
-            git checkout master
+            git log --format=%B -n 1 | sed "s/\$/ $JIRA_ISSUE_KEY/" | git commit --amend --file=-
+            git push -f
           fi
 
