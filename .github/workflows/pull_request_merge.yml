@@ -65,6 +65,8 @@ jobs:
             # ADD LINK TO LAST COMMIT
             # -----------------------
             
+            git log --format=%B -n 1 | sed "s/^/$(echo $JIRA_LINK | sed 's/\//\\\//g')\n/" | echo
+            
             git log --format=%B -n 1 | sed "s/^/$(echo $JIRA_LINK | sed 's/\//\\\//g')\n/" | git commit --amend --file=-
             git push -f
           else
