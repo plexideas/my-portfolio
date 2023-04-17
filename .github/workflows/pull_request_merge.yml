@@ -22,6 +22,7 @@ jobs:
         
       - name: Pull Request - Merge
         if: github.event.pull_request.merged
+        # hello
         run: |
           BRANCH_NAME=${{ github.event.pull_request.head.ref }}
           JIRA_ISSUE_KEY=$(echo "$BRANCH_NAME" | grep -oP '(?<=\/)[A-Z]+-[0-9]+')
