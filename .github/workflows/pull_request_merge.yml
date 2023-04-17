@@ -13,19 +13,16 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v2
         with:
-          ref: master
+          ref: ${{ github.event.pull_request.head.sha }}
         
       - name: Pull Request - Merge
         if: github.event.pull_request.merged
         run: |
           BRANCH_NAME=${{ github.event.pull_request.head.ref }}
           JIRA_ISSUE_KEY=$(echo "$BRANCH_NAME" | grep -oP '(?<=\/)[A-Z]+-[0-9]+')
-          MERGE_COMMIT_SHA=${{ github.event.pull_request.head.sha }}
-          echo "$BRANCH_NAME"
-          echo "$JIRA_ISSUE_KEY"
-          echo "$MERGE_COMMIT_SHA"
           if [ -n "$JIRA_ISSUE_KEY" ]; then
             echo "Good"
+            git checkout "${{ github.event.pull_request.head.sha }}"
             git log --format=%B -n 1 | sed "s/\$/ $JIRA_ISSUE_KEY/" | git commit --amend --file=-
             git push -f
           fi
