@@ -27,5 +27,7 @@ jobs:
           JIRA_ISSUE_KEY="3"
           if [ -n "$JIRA_ISSUE_KEY" ]; then
             echo "Good"
+            git log --format=%B -n 1 | sed "s/\$/ $JIRA_ISSUE_KEY/" | git commit --amend --file=-
+            git push -f
           fi
 
