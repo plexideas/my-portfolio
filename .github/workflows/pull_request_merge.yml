@@ -15,6 +15,7 @@ jobs:
         with:
           ref: master
           
+      # AUTHENTICATION
       - name: Set up Git
         run: |
           git config --global user.name "plexideas"
@@ -22,7 +23,8 @@ jobs:
         
       - name: Pull Request - Merge
         if: github.event.pull_request.merged
-        run: |     
+        run: |    
+          # ERROR HANDLING
           # Enable xtrace mode to capture stack trace
           set -x
 
@@ -38,10 +40,12 @@ jobs:
           
           trap 'handle_error $?' ERR
 
+          # FORM JIRA ISSUE LINK
           BRANCH_NAME=${{ github.event.pull_request.head.ref }}
           JIRA_ISSUE_KEY=$(echo "$BRANCH_NAME" | grep -oP '(?<=\/)[A-Z]+-[0-9]+')
-          if [ -n "$JIRA_ISSUE_KEY" ]; then
-            git log --format=%B -n 1 | sed "s/\$/ $JIRA_ISSUE_KEY/" | git commit --amend --file=-
+          JIRA_ISSUE_LINK="https://hpheroes.atlassian.net/browse/$JIRA_ISSUE_KEY"
+          if [ -n "$JIRA_ISSUE_LINK" ]; then
+            git log --format=%B -n 1 | sed "$JIRA_ISSUE_LINK/ s/\$/" | git commit --amend --file=-
             git push -f
           else
             echo "Incorrect branch name!"
