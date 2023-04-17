@@ -1,0 +1,17 @@
+name: Extract Commits
+
+on:
+  pull_request:
+    types:
+      - closed
+
+jobs:
+  extract_commits:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Extract Commits
+        run: echo '${{ toJSON(github.event.pull_request) }}'
