@@ -24,7 +24,16 @@ jobs:
         
       - name: Pull Request - Merge
         if: github.event.pull_request.merged
-        run: |
+        run: |     
+          set -e
+          
+          handle_error() {
+            echo "Error: $1" >&2
+            exit 1
+          }
+          
+          trap 'handle_error "Something wrong $?"' ERR
+
           BRANCH_NAME=${{ github.event.pull_request.head.ref }}
           JIRA_ISSUE_KEY=$(echo "$BRANCH_NAME" | grep -oP '(?<=\/)[A-Z]+-[0-9]+')
           if [ -n "$JIRA_ISSUE_KEY" ]; then
