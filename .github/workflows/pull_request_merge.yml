@@ -22,7 +22,7 @@ jobs:
           JIRA_ISSUE_KEY=$(echo "$BRANCH_NAME" | grep -oP '(?<=\/)[A-Z]+-[0-9]+')
           if [ -n "$JIRA_ISSUE_KEY" ]; then
             echo "Good"
-            git log --format=%B -n 1 | sed "s/\$/ $JIRA_ISSUE_KEY/" | git commit --amend --file=-
-            git push -f
+            git log --format=%B -n 1
+            #git push -f
           fi
 
