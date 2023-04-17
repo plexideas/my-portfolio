@@ -52,7 +52,7 @@ jobs:
           # -----------------------
           
           BRANCH_NAME=${{ github.event.pull_request.head.ref }}
-          JIRA_ISSUE_KEY=$(echo "$BRANCH_NAME" | grep -oP '(?<=\/)[A-Z0-9]+-[0-9]+')
+          JIRA_ISSUE_KEY=$(echo "$BRANCH_NAME" | grep -oiP '(?<=\/)[A-Z0-9]+-[0-9]+')
           JIRA_ISSUE_LINK="https://hpheroes.atlassian.net/browse/$JIRA_ISSUE_KEY"
           if [ -n "$JIRA_ISSUE_LINK" ]; then
           
