@@ -23,11 +23,17 @@ jobs:
       - name: Pull Request - Merge
         if: github.event.pull_request.merged
         run: |     
-          set -e
-          
+          # Enable xtrace mode to capture stack trace
+          set -x
+
+          # Define a function to handle errors
           handle_error() {
             echo "Error: $1" >&2
-            exit 0
+            echo "Stack trace:"
+            for ((i=${#BASH_LINENO[@]}-1; i>=0; i--)); do
+              echo "File: ${BASH_SOURCE[i]}, Line: ${BASH_LINENO[i]}"
+            done
+            exit 1
           }
           
           trap 'handle_error "Something wrong $?"' ERR
